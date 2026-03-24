@@ -1,0 +1,18 @@
+# Mictrack MT710: APN + Traccar server. Baud 961200 is set in mictrack.py (Serial).
+#
+# From repo root with venv active:
+#   python -m mictrack config /dev/cu.usbserial-210 config/traccar_1nce_private_server.yaml
+#
+# Use cu.* on macOS for outgoing serial; tty.* can block if another process opens it.
+
+- command: START
+- command: ACCESS_POINT
+  apn: iot.1nce.net
+  # username and password default to empty in the tool (same as commented-out YAML)
+- command: SERVER
+  host: "34.229.224.178"
+  port: 5000
+# - command: PROTOCOL
+#   protocol: TCP
+- command: READ_CONF
+- command: SAVE_REBOOT
